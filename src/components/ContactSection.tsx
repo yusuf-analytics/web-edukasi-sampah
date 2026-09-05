@@ -1,5 +1,8 @@
 "use client";
 
+import { useState } from "react";
+import Image from "next/image";
+
 interface ContactItem {
   name: string;
   role: string;
@@ -55,6 +58,8 @@ const contacts: ContactItem[] = [
 ];
 
 export default function ContactSection() {
+  const [isQrisModalOpen, setIsQrisModalOpen] = useState(false);
+
   return (
     <section
       id="kontak"
@@ -157,6 +162,257 @@ export default function ContactSection() {
             );
           })}
         </div>
+
+        {/* Dedicated QRIS Support Section */}
+        <div
+          id="donasi"
+          className="relative w-full bg-gradient-to-br from-slate-950 via-zinc-900 to-black text-white rounded-3xl p-6 sm:p-10 md:p-12 shadow-2xl border border-white/15 mb-16 overflow-hidden"
+        >
+          {/* Background Ambient Glow */}
+          <div className="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+
+          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            {/* Left Content: Description, Objectives & Merchant Info */}
+            <div className="lg:col-span-7 flex flex-col justify-between">
+              <div>
+                {/* Pill Tag */}
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-xs font-semibold uppercase tracking-wider mb-4">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                  Dukungan & Partisipasi Nyata Warga
+                </div>
+
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white mb-4 leading-tight">
+                  Dukung Aksi Nyata & Pengelolaan Sampah Lebak Gede
+                </h3>
+
+                <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
+                  Setiap partisipasi dan dukungan dana Anda disalurkan secara terarah untuk realisasi program lingkungan berkelanjutan di RW 04, RW 07, dan RW 14: pengadaan mesin bor kompos, kandang ayam pemanfaatan sampah organik, kebun tanaman produktif, serta armada transportasi kebersihan wilayah.
+                </p>
+
+                {/* 3 Program Utama Alokasi Dana */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
+                  {/* Program 1: Mesin Bor Kompos RW 7 & 14 */}
+                  <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 flex flex-col justify-start hover:border-emerald-500/40 transition">
+                    <div className="flex items-center gap-2 mb-1.5">
+                      <span className="text-emerald-400 text-base">⚙️</span>
+                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                        RW 07 & RW 14
+                      </span>
+                    </div>
+                    <h4 className="text-xs font-bold text-white">Mesin Bor Kompos</h4>
+                    <p className="text-[11px] text-slate-400 mt-1 leading-snug">
+                      Pembelian mesin bor lubang biopori & pengolahan kompos organik warga.
+                    </p>
+                  </div>
+
+                  {/* Program 2: Kandang Ayam RW 04 */}
+                  <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 flex flex-col justify-start hover:border-amber-500/40 transition">
+                    <div className="flex items-center gap-2 mb-1.5">
+                      <span className="text-amber-400 text-base">🐔</span>
+                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                        RW 04
+                      </span>
+                    </div>
+                    <h4 className="text-xs font-bold text-white">Kandang Ayam Terpadu</h4>
+                    <p className="text-[11px] text-slate-400 mt-1 leading-snug">
+                      Pembuatan kandang ayam pemanfaatan sisa makanan organik rumah tangga.
+                    </p>
+                  </div>
+
+                  {/* Program 3: Area Tanaman Hijau RW 14 */}
+                  <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 flex flex-col justify-start hover:border-blue-500/40 transition">
+                    <div className="flex items-center gap-2 mb-1.5">
+                      <span className="text-blue-400 text-base">🌿</span>
+                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-300 border border-blue-500/30">
+                        RW 14
+                      </span>
+                    </div>
+                    <h4 className="text-xs font-bold text-white">Area Tanaman Hijau</h4>
+                    <p className="text-[11px] text-slate-400 mt-1 leading-snug">
+                      Pembuatan & penataan kebun tanaman produktif dari pupuk kompos lokal.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Merchant Verified Information */}
+                <div className="p-4 rounded-xl bg-white/5 border border-white/10 text-xs text-slate-300 mb-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                  <div>
+                    <span className="text-[11px] text-slate-400 uppercase tracking-wide block">Nama Penerima / Merchant Resmi:</span>
+                    <strong className="text-white text-sm font-semibold tracking-wide">
+                      SUBHAN KURNIA ROHMAN, TRANSPORTASI
+                    </strong>
+                    <span className="text-slate-400 block font-mono text-[11px] mt-0.5">
+                      NMID: <span className="text-emerald-400 font-semibold">ID1025382504567</span> • A01
+                    </span>
+                  </div>
+                  <span className="px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 font-medium text-[11px] shrink-0 border border-emerald-500/30">
+                    QRIS Standar Nasional
+                  </span>
+                </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="flex flex-wrap items-center gap-3">
+                <button
+                  type="button"
+                  onClick={() => setIsQrisModalOpen(true)}
+                  className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-white text-black hover:bg-slate-200 active:scale-95 font-semibold text-xs sm:text-sm transition shadow-lg shadow-white/10 cursor-pointer"
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7" />
+                  </svg>
+                  <span>Perbesar / Scan QRIS</span>
+                </button>
+
+                <a
+                  href="/qris-donasi.png"
+                  download="QRIS-Donasi-Lebak-Gede.png"
+                  className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full border border-white/20 bg-white/10 hover:bg-white/20 active:scale-95 font-semibold text-xs sm:text-sm transition text-white cursor-pointer"
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                  </svg>
+                  <span>Download Gambar</span>
+                </a>
+
+                <a
+                  href="https://wa.me/6281394784696?text=Halo%20Tim%20KKN%20Lebak%20Gede,%20saya%20sudah%20melakukan%20donasi/dukungan%20via%20QRIS%20untuk%20operasional%20pengelolaan%20sampah."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-1.5 text-xs text-slate-400 hover:text-emerald-400 transition py-2 px-3"
+                >
+                  <span>Konfirmasi via WA →</span>
+                </a>
+              </div>
+            </div>
+
+            {/* Right Content: Framed QRIS Card Preview */}
+            <div className="lg:col-span-5 flex flex-col items-center">
+              <div
+                onClick={() => setIsQrisModalOpen(true)}
+                className="group relative bg-white text-slate-900 rounded-2xl p-4 sm:p-5 shadow-2xl border-2 border-white/20 max-w-[290px] sm:max-w-[310px] w-full cursor-pointer hover:scale-[1.02] transition-all duration-300"
+              >
+                {/* Click to Zoom Hover Overlay Banner */}
+                <div className="absolute inset-0 bg-black/60 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center text-white p-4 text-center z-20 backdrop-blur-[2px]">
+                  <div className="w-12 h-12 rounded-full bg-white text-black flex items-center justify-center mb-2 shadow-lg scale-90 group-hover:scale-100 transition-transform">
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7" />
+                    </svg>
+                  </div>
+                  <span className="font-semibold text-sm">Klik untuk Memperbesar</span>
+                  <span className="text-xs text-slate-300 mt-1">Bisa di-screenshot untuk bayar via m-Banking</span>
+                </div>
+
+                {/* QRIS Image */}
+                <div className="relative w-full aspect-[3/4.2] rounded-xl overflow-hidden bg-white">
+                  <Image
+                    src="/qris-donasi.png"
+                    alt="QRIS Subhan Kurnia Rohman Transportasi"
+                    fill
+                    unoptimized
+                    priority
+                    className="object-contain"
+                  />
+                </div>
+
+                {/* Mini Footer on Card */}
+                <div className="mt-3 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
+                  <span className="font-medium text-slate-700">Semua m-Banking & e-Wallet</span>
+                  <span className="text-emerald-600 font-semibold flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                    Aktif
+                  </span>
+                </div>
+              </div>
+
+              <p className="text-[11px] text-slate-400 mt-3 text-center">
+                Scan langsung menggunakan camera e-wallet atau mobile banking apa saja.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Interactive QRIS Modal Popup */}
+        {isQrisModalOpen && (
+          <div
+            className="fixed inset-0 z-[200] bg-black/85 backdrop-blur-md flex items-center justify-center p-4"
+            onClick={() => setIsQrisModalOpen(false)}
+          >
+            <div
+              className="relative bg-white text-slate-900 rounded-3xl p-6 sm:p-8 max-w-sm sm:max-w-md w-full shadow-2xl border border-slate-200 animate-in fade-in zoom-in-95 duration-200"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Close Button */}
+              <button
+                type="button"
+                onClick={() => setIsQrisModalOpen(false)}
+                className="absolute top-4 right-4 text-slate-400 hover:text-slate-800 p-2 rounded-full hover:bg-slate-100 transition"
+                aria-label="Tutup QRIS Modal"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+
+              <div className="text-center mb-4">
+                <span className="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-semibold uppercase tracking-wider">
+                  QRIS Donasi & Dukungan Kegiatan
+                </span>
+                <h3 className="font-bold text-lg text-slate-900 mt-2">
+                  SUBHAN KURNIA ROHMAN, TRANSPORTASI
+                </h3>
+                <p className="text-xs text-slate-500 font-mono">NMID: ID1025382504567</p>
+                <div className="flex flex-wrap items-center justify-center gap-1.5 mt-2.5">
+                  <span className="text-[10px] bg-slate-100 text-slate-700 font-medium px-2 py-0.5 rounded-md border border-slate-200">
+                    ⚙️ Bor Kompos (RW 7 & 14)
+                  </span>
+                  <span className="text-[10px] bg-slate-100 text-slate-700 font-medium px-2 py-0.5 rounded-md border border-slate-200">
+                    🐔 Kandang Ayam (RW 4)
+                  </span>
+                  <span className="text-[10px] bg-slate-100 text-slate-700 font-medium px-2 py-0.5 rounded-md border border-slate-200">
+                    🌿 Tanaman Hijau (RW 14)
+                  </span>
+                </div>
+              </div>
+
+              {/* Large Image */}
+              <div className="relative w-full aspect-[3/4.2] rounded-2xl overflow-hidden bg-white border border-slate-200 shadow-inner mb-5">
+                <Image
+                  src="/qris-donasi.png"
+                  alt="QRIS Donasi Lebak Gede"
+                  fill
+                  unoptimized
+                  className="object-contain p-2"
+                />
+              </div>
+
+              {/* Guide & Download Button */}
+              <div className="flex flex-col gap-2.5 text-center">
+                <p className="text-xs text-slate-500 leading-relaxed">
+                  💡 <strong>Tips HP:</strong> Screenshot layar ini, lalu buka aplikasi m-Banking (BCA/Mandiri/BRI dll) atau e-Wallet (GoPay/OVO/Dana), pilih <strong>Scan QRIS</strong> dan upload gambar dari galeri Anda.
+                </p>
+
+                <div className="flex gap-2.5 mt-2">
+                  <a
+                    href="/qris-donasi.png"
+                    download="QRIS-Donasi-Lebak-Gede.png"
+                    className="flex-1 py-3 px-4 rounded-xl bg-slate-900 text-white hover:bg-slate-800 font-semibold text-xs sm:text-sm transition text-center"
+                  >
+                    Simpan Gambar QRIS
+                  </a>
+                  <button
+                    type="button"
+                    onClick={() => setIsQrisModalOpen(false)}
+                    className="py-3 px-4 rounded-xl border border-slate-300 text-slate-700 hover:bg-slate-100 font-semibold text-xs sm:text-sm transition"
+                  >
+                    Tutup
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* Call to Action Banner (Motivasi Lingkungan) */}
         <div className="py-14 bg-gradient-to-br from-slate-900 via-zinc-900 to-black rounded-3xl w-full text-center px-6 sm:px-12 shadow-2xl border border-white/10 text-white">

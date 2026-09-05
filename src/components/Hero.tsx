@@ -33,6 +33,7 @@ export default function Hero() {
     { label: "Tantangan TPA", href: "#tantangan" },
     { label: "Gerakan 3R", href: "#section-3r" },
     { label: "Katalog Sampah", href: "#katalog-sampah" },
+    { label: "Dukungan QRIS", href: "#donasi" },
     { label: "Media Sosial", href: "#media-sosial" },
     { label: "Tim Kami", href: "#tim-kami" },
     { label: "FAQ", href: "#faq" },

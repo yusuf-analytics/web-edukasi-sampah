@@ -107,6 +107,12 @@ export default function Footer() {
                 </a>
               </li>
               <li>
+                <a href="#donasi" className="text-emerald-400 hover:text-white transition flex items-center gap-1.5 font-medium">
+                  <span>Dukungan QRIS</span>
+                  <span className="text-[10px] px-1.5 py-0.2 rounded-full bg-emerald-500/20 text-emerald-300">Donasi</span>
+                </a>
+              </li>
+              <li>
                 <a href="#scan-sampah" className="hover:text-white transition">
                   Pilah Sampah
                 </a>
